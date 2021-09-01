@@ -14,7 +14,7 @@ namespace XamWebApiClient
         public AppShell()
         {
             InitializeComponent();
-
+             
             Routing.RegisterRoute(nameof(AddBook), typeof(AddBook));
             Routing.RegisterRoute(nameof(BookDetails), typeof(BookDetails));
         }
