@@ -22,7 +22,7 @@ namespace XamWebApiClient.ViewModels
             _bookService = bookService;
 
             Books = new ObservableCollection<Book>();
-            DeleteCommand = new Command<Book>(async b => await DeleteBook(b));
+            DeleteBookCommand = new Command<Book>(async b => await DeleteBook(b));
             AddNewBookCommand = new Command(async () => await GoToAddbookView());
         }
 
@@ -38,6 +38,7 @@ namespace XamWebApiClient.ViewModels
             try
             {
                 Books.Clear();
+
                 var books = await _bookService.GetBooks();
                 foreach(var book in books)
                 {
@@ -79,7 +80,7 @@ namespace XamWebApiClient.ViewModels
             }
         }
 
-        public ICommand DeleteCommand { get; }
+        public ICommand DeleteBookCommand { get; }
         public ICommand AddNewBookCommand { get; }
     }
 }
